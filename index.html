@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografis Konflik Semen Pracimantoro: Analisis Media & Dinamika Sosial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Visualization & Content Choices:
+        - Sekilas Konflik: Goal: Inform. Viz: Kartu info (HTML/CSS) dengan angka besar (Nilai Investasi, Target Produksi, Klaim Lapangan Kerja). Justification: Cepat menyampaikan skala proyek. No SVG/Mermaid.
+        - Polarisasi Media: Goal: Compare. Viz: Daftar media per kategori (HTML/CSS), Donut Chart (Chart.js) untuk distribusi jumlah media. Justification: Visualisasi pembagian media yang jelas. No SVG/Mermaid.
+        - Dinamika Sentimen: Goal: Inform. Viz: Kartu kutipan berita (HTML/CSS). Justification: Memberikan contoh konkret narasi media. No SVG/Mermaid.
+        - Linimasa Lonjakan Pemberitaan: Goal: Change. Viz: Line Chart (Chart.js) untuk tren volume berita, dengan anotasi teks untuk pemicu. Justification: Menunjukkan evolusi perhatian media terhadap waktu. No SVG/Mermaid.
+        - Peta Pemangku Kepentingan: Goal: Organize/Compare. Viz: Kartu info tokoh kunci (HTML/CSS) per kategori. Justification: Memperkenalkan aktor-aktor utama dengan ringkas. No SVG/Mermaid.
+        - Isu Sentral (AMDAL): Goal: Inform/Organize. Viz: Daftar poin isu AMDAL (HTML List), mungkin diagram alur sederhana (HTML/CSS) jika tetap ringkas. Justification: Meringkas inti permasalahan teknis/prosedural. No SVG/Mermaid.
+        - Kesimpulan: Goal: Inform. Viz: Teks ringkasan (HTML). Justification: Menyimpulkan temuan utama. No SVG/Mermaid.
+    -->
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 300px; max-height: 400px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        .kpi-card { background-color: #FFFFFF; border-left-width: 4px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .kpi-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); }
+        .section-title::before { content: ''; display: block; width: 50px; height: 4px; background-color: #0369A1; margin-bottom: 0.5rem; }
+        .nav-item { transition: color 0.3s ease; }
+        .nav-item:hover, .nav-item.active { color: #0284C7; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-700">
+
+    <header class="bg-sky-700 text-white py-12 px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Mengurai Konflik Semen Pracimantoro</h1>
+        <p class="text-xl md:text-2xl max-w-3xl mx-auto">Analisis Mendalam Lanskap Media, Pemangku Kepentingan, dan Dinamika Sosial</p>
+    </header>
+
+    <nav class="sticky top-0 bg-white shadow-md z-50 hidden md:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex justify-center space-x-8 py-3">
+                <li><a href="#sekilas-konflik" class="nav-item text-slate-600 font-semibold">Sekilas Konflik</a></li>
+                <li><a href="#polarisasi-media" class="nav-item text-slate-600 font-semibold">Polarisasi Media</a></li>
+                <li><a href="#linimasa-berita" class="nav-item text-slate-600 font-semibold">Linimasa Berita</a></li>
+                <li><a href="#pemangku-kepentingan" class="nav-item text-slate-600 font-semibold">Pemangku Kepentingan</a></li>
+                <li><a href="#isu-sentral" class="nav-item text-slate-600 font-semibold">Isu Sentral</a></li>
+                <li><a href="#kesimpulan" class="nav-item text-slate-600 font-semibold">Kesimpulan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="sekilas-konflik" class="py-12">
+            <h2 class="section-title text-3xl font-bold text-sky-700 mb-8 text-center">Sekilas Konflik Pracimantoro</h2>
+            <p class="max-w-2xl mx-auto text-center text-slate-600 mb-10">Rencana pembangunan pabrik semen dan penambangan di Pracimantoro, Wonogiri, memicu pertentangan antara potensi ekonomi dan kekhawatiran dampak sosio-lingkungan. Berikut adalah beberapa angka kunci:</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="kpi-card p-6 rounded-lg shadow-lg border-sky-500">
+                    <h3 class="text-4xl font-bold text-sky-600 mb-2">Rp6 Triliun</h3>
+                    <p class="text-slate-600">Nilai investasi proyek pabrik semen dan penambangan batu gamping.</p>
+                </div>
+                <div class="kpi-card p-6 rounded-lg shadow-lg border-emerald-500">
+                    <h3 class="text-4xl font-bold text-emerald-600 mb-2">4,5 Juta Ton/Tahun</h3>
+                    <p class="text-slate-600">Target kapasitas produksi semen tahunan.</p>
+                </div>
+                <div class="kpi-card p-6 rounded-lg shadow-lg border-amber-500">
+                    <h3 class="text-4xl font-bold text-amber-600 mb-2">7.000 Pekerja</h3>
+                    <p class="text-slate-600">Klaim potensi serapan tenaga kerja (langsung & tidak langsung).</p>
+                </div>
+            </div>
+            <p class="mt-8 max-w-2xl mx-auto text-center text-slate-600">Proyek ini berlokasi dekat Kawasan Bentang Alam Karst (KBAK) Gunungsewu, sebuah UNESCO Global Geopark, yang menjadi sumber kekhawatiran utama terkait dampak lingkungan dan hilangnya mata pencaharian pertanian tradisional.</p>
+        </section>
+
+        <section id="polarisasi-media" class="py-12 bg-white rounded-lg shadow-xl my-12 p-8">
+            <h2 class="section-title text-3xl font-bold text-sky-700 mb-8 text-center">Polarisasi dalam Bingkai Media</h2>
+            <p class="max-w-2xl mx-auto text-center text-slate-600 mb-10">Pemberitaan konflik menunjukkan adanya pembagian narasi yang jelas antara media yang mendukung warga, mendukung industri, dan yang berupaya netral.</p>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-slate-700 mb-6">Distribusi Keberpihakan Media</h3>
+                    <div class="chart-container h-[300px] md:h-[350px]">
+                        <canvas id="mediaStanceChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-sm text-slate-500 text-center">Berdasarkan analisis terhadap 11 media yang dominan meliput isu ini.</p>
+                </div>
+                <div class="mt-8 md:mt-0">
+                    <h3 class="text-2xl font-semibold text-slate-700 mb-6">Contoh Narasi Media</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 border-l-4 border-emerald-500 bg-emerald-50 rounded-md">
+                            <p class="font-semibold text-emerald-700">Pro-Warga & Lingkungan (Contoh: Mongabay, Mojok.co)</p>
+                            <blockquote class="italic text-slate-600 text-sm">"'Tanpa Uang pun Kami Masih Bisa Makan dari Alam, tapi Pabrik Semen bakal menghancurkannya.'"</blockquote>
+                        </div>
+                        <div class="p-4 border-l-4 border-amber-500 bg-amber-50 rounded-md">
+                            <p class="font-semibold text-amber-700">Pro-Pabrik & Investasi (Contoh: Solo Post, Suara Merdeka Solo)</p>
+                            <blockquote class="italic text-slate-600 text-sm">"'Multiplier Effect Pendirian Pabrik Semen Wonogiri Diperhitungkan Menumbuhkan 7.000 Lapangan Kerja.'"</blockquote>
+                        </div>
+                        <div class="p-4 border-l-4 border-sky-500 bg-sky-50 rounded-md">
+                            <p class="font-semibold text-sky-700">Netral/Berimbang (Contoh: Radarsolo, Espos.id)</p>
+                            <blockquote class="italic text-slate-600 text-sm">Melaporkan audiensi publik dengan menyajikan argumen dari kedua belah pihak.</blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <p class="mt-10 max-w-3xl mx-auto text-center text-slate-600">Kecenderungan ini menunjukkan media tidak hanya melaporkan, tetapi juga mencerminkan dan berpotensi memperkuat polarisasi sosial yang ada, menciptakan ruang gema bagi masing-masing narasi.</p>
+        </section>
+
+        <section id="linimasa-berita" class="py-12">
+            <h2 class="section-title text-3xl font-bold text-sky-700 mb-8 text-center">Linimasa Lonjakan Pemberitaan</h2>
+            <p class="max-w-2xl mx-auto text-center text-slate-600 mb-10">Volume pemberitaan mengalami peningkatan signifikan pada periode tertentu, seringkali dipicu oleh aksi publik dan proses formal terkait proyek.</p>
+            <div class="bg-white p-6 rounded-lg shadow-xl">
+                <div class="chart-container h-[350px] md:h-[400px] mb-6">
+                    <canvas id="newsTrendChart"></canvas>
+                </div>
+                <div id="event-details" class="text-sm text-slate-600 space-y-3">
+                    <p><strong class="text-sky-600">Pemicu Utama:</strong> Aksi deklarasi kelompok pro dan kontra, Rapat Dengar Pendapat (RDP) dengan DPRD, serta isu transparansi AMDAL menjadi katalis utama lonjakan berita.</p>
+                    <ul class="list-disc list-inside pl-4 space-y-1">
+                        <li><strong class="text-slate-700">Maret 2025:</strong> Deklarasi Laskar Tali Jiwo (anti-pabrik) & Paguyuban Cinta Pracimantoro (pro-pabrik), aksi pencegatan iring-iringan Bupati.</li>
+                        <li><strong class="text-slate-700">April 2025:</strong> RDP Paguyuban Tali Jiwo dengan DPRD Wonogiri, mengemukanya polemik AMDAL dan isu harga lahan.</li>
+                        <li><strong class="text-slate-700">Mei 2025:</strong> Upaya mediasi DPRD dan *hearing* tandingan dari Paguyuban Cinta Pracimantoro.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="pemangku-kepentingan" class="py-12 bg-white rounded-lg shadow-xl my-12 p-8">
+            <h2 class="section-title text-3xl font-bold text-sky-700 mb-8 text-center">Peta Pemangku Kepentingan Utama</h2>
+            <p class="max-w-2xl mx-auto text-center text-slate-600 mb-10">Konflik ini melibatkan beragam aktor dengan kepentingan dan narasi yang berbeda.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="border-t-4 border-emerald-500 p-6 rounded-lg shadow-md bg-slate-50">
+                    <h3 class="text-2xl font-semibold text-emerald-700 mb-4">Pro-Warga & Lingkungan</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><strong>Paguyuban Tali Jiwo (Suryono, Suryanto P.):</strong> Menolak pabrik, soroti dampak lingkungan, kurangnya sosialisasi AMDAL.</li>
+                        <li><strong>Aktivis Lingkungan (Himawan K., Alfarhat K.):</strong> Tekankan kerusakan karst, kerugian lebih besar dari manfaat ekonomi.</li>
+                        <li><strong>Akademisi (Nurul Aini - Sosiolog UGM):</strong> Peringatkan potensi konflik sosial, kriminalisasi petani.</li>
+                    </ul>
+                </div>
+                <div class="border-t-4 border-amber-500 p-6 rounded-lg shadow-md bg-slate-50">
+                    <h3 class="text-2xl font-semibold text-amber-700 mb-4">Pro-Pabrik & Investasi</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><strong>Perusahaan (Suwadi Bing Andi - PT AAA & SSS):</strong> Proyek strategis, ciptakan lapangan kerja, penuhi regulasi.</li>
+                        <li><strong>Pemerintah Daerah (Bupati Setyo Sukarno):</strong> Dukung investasi untuk kemajuan ekonomi Wonogiri.</li>
+                        <li><strong>Paguyuban Cinta Pracimantoro (Permadi):</strong> Dukung pabrik, klaim tak ada dampak negatif, buka lapangan kerja.</li>
+                    </ul>
+                </div>
+                <div class="border-t-4 border-sky-500 p-6 rounded-lg shadow-md bg-slate-50">
+                    <h3 class="text-2xl font-semibold text-sky-700 mb-4">Netral / Mediator</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><strong>Ketua DPRD Wonogiri (Sriyono):</strong> Berusaha netral, fasilitasi audiensi, akui kurangnya sosialisasi.</li>
+                        <li><strong>Pejabat Provinsi (DLHK Jateng, Setda Jateng):</strong> Tekankan aspek regulasi, sarankan dialog terbuka.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="isu-sentral" class="py-12">
+            <h2 class="section-title text-3xl font-bold text-sky-700 mb-8 text-center">Isu Sentral: AMDAL dan Partisipasi Publik</h2>
+            <p class="max-w-2xl mx-auto text-center text-slate-600 mb-10">Proses Analisis Mengenai Dampak Lingkungan (AMDAL) dan keterlibatan masyarakat menjadi titik krusial dalam konflik ini.</p>
+            <div class="bg-white p-8 rounded-lg shadow-xl">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-slate-700 mb-3">Kekhawatiran Terkait AMDAL:</h3>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li>Kurangnya sosialisasi yang transparan dan melibatkan pemilik lahan terdampak.</li>
+                            <li>Dugaan proses AMDAL yang cacat formal dan substansial.</li>
+                            <li>Ketidakjelasan mengenai status Kawasan Bentang Alam Karst (KBAK) dan potensi dampaknya.</li>
+                            <li>Perubahan Perda RTRW yang dianggap memfasilitasi proyek tanpa kajian mendalam.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-slate-700 mb-3">Tuntutan Partisipasi Publik:</h3>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li>Keterlibatan masyarakat yang terdampak langsung dalam setiap tahapan pengambilan keputusan.</li>
+                            <li>Dialog yang tulus dan terbuka antara perusahaan, pemerintah, dan warga.</li>
+                            <li>Perlindungan terhadap hak-hak warga atas tanah dan lingkungan hidup yang sehat.</li>
+                            <li>Kajian ulang komprehensif terhadap dampak proyek dengan melibatkan ahli independen.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="mt-8 text-center text-slate-600">Ketidakpuasan terhadap proses AMDAL dan minimnya partisipasi publik yang bermakna menjadi bahan bakar utama penolakan dan eskalasi konflik.</p>
+            </div>
+        </section>
+
+        <section id="kesimpulan" class="py-12 bg-sky-700 text-white rounded-lg shadow-xl my-12 p-8 md:p-12">
+            <h2 class="section-title text-3xl font-bold mb-8 text-center before:bg-white">Kesimpulan Utama</h2>
+            <div class="max-w-3xl mx-auto space-y-4 text-lg">
+                <p>Konflik Pracimantoro adalah cerminan kompleks dari ketegangan antara pembangunan ekonomi dan pelestarian lingkungan serta keadilan sosial. Polarisasi media memperkuat perpecahan, sementara lonjakan berita dipicu oleh peristiwa publik kunci.</p>
+                <p>Transparansi AMDAL dan partisipasi publik yang minim menjadi inti masalah, mengikis kepercayaan dan memperdalam konflik. Kasus ini menekankan pentingnya pendekatan inklusif dan komunikasi efektif dalam proyek berskala besar di area sensitif.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-8 text-slate-500 text-sm border-t border-slate-200">
+        <p>&copy; 2025 Infografis Konflik Pracimantoro. Dibuat berdasarkan analisis laporan.</p>
+    </footer>
+
+<script>
+    function wrapText(text, maxWidth) {
+        if (typeof text !== 'string') return text;
+        if (text.length <= maxWidth) return text;
+
+        const words = text.split(' ');
+        let lines = [];
+        let currentLine = words[0];
+
+        for (let i = 1; i < words.length; i++) {
+            if (currentLine.length + words[i].length + 1 <= maxWidth) {
+                currentLine += ' ' + words[i];
+            } else {
+                lines.push(currentLine);
+                currentLine = words[i];
+            }
+        }
+        lines.push(currentLine);
+        return lines;
+    }
+
+    const defaultTooltipCallbacks = {
+        title: function(tooltipItems) {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        }
+    };
+
+    const mediaStanceData = {
+        labels: ['Pro-Warga & Lingkungan', 'Pro-Pabrik & Investasi', 'Netral / Berimbang'].map(label => wrapText(label, 16)),
+        datasets: [{
+            label: 'Distribusi Keberpihakan Media',
+            data: [5, 4, 2],
+            backgroundColor: [
+                'rgba(5, 150, 105, 0.7)', // emerald-600
+                'rgba(217, 119, 6, 0.7)',  // amber-600
+                'rgba(2, 132, 199, 0.7)'   // sky-600
+            ],
+            borderColor: [
+                'rgba(5, 150, 105, 1)',
+                'rgba(217, 119, 6, 1)',
+                'rgba(2, 132, 199, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    new Chart(document.getElementById('mediaStanceChart'), {
+        type: 'doughnut',
+        data: mediaStanceData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom', labels: { font: { size: 10 } } },
+                tooltip: { callbacks: defaultTooltipCallbacks }
+            }
+        }
+    });
+
+    const newsTrendData = {
+        labels: ['Awal Maret', 'Tengah Maret', 'Akhir Maret', 'Awal April', 'Tengah April', 'Akhir April', 'Awal Mei', 'Tengah Mei'].map(label => wrapText(label, 16)),
+        datasets: [{
+            label: 'Estimasi Intensitas Pemberitaan',
+            data: [5, 8, 6, 4, 9, 7, 5, 7], // Skala 1-10
+            borderColor: 'rgba(2, 132, 199, 1)', // sky-600
+            backgroundColor: 'rgba(2, 132, 199, 0.2)',
+            tension: 0.3,
+            fill: true,
+            pointRadius: 5,
+            pointHoverRadius: 7
+        }]
+    };
+
+    new Chart(document.getElementById('newsTrendChart'), {
+        type: 'line',
+        data: newsTrendData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: { beginAtZero: true, suggestedMax: 10, title: { display: true, text: 'Intensitas (1-10)'} },
+                x: { title: { display: true, text: 'Periode (2025)'}}
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: defaultTooltipCallbacks,
+                    mode: 'index',
+                    intersect: false,
+                }
+            }
+        }
+    });
+
+    // Sticky Navigation Scroll Highlight
+    const navLinks = document.querySelectorAll('.nav-item');
+    const sections = document.querySelectorAll('section[id]');
+
+    function changeNavActiveState() {
+        let index = sections.length;
+        while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+        
+        navLinks.forEach((link) => link.classList.remove('active', 'text-sky-600', 'font-bold'));
+        // Check if a section is found and the corresponding link exists
+        if (index >= 0 && navLinks[index]) {
+             navLinks[index].classList.add('active', 'text-sky-600', 'font-bold');
+        } else if (navLinks.length > 0 && index < 0) { // If scrolled to top, highlight first item
+            navLinks[0].classList.add('active', 'text-sky-600', 'font-bold');
+        }
+    }
+
+    if (navLinks.length > 0 && sections.length > 0) {
+        changeNavActiveState(); // Initial check
+        window.addEventListener('scroll', changeNavActiveState);
+    }
+
+</script>
+</body>
+</html>
